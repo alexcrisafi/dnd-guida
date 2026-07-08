@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarenrae, la Fiamma dell'Alba — Manuale del fedele</title>
+<style>
+  :root {
+    --gold: #c9a227;
+    --dark-gold: #8a6d1a;
+    --parchment: #f6efdd;
+    --ink: #2c2418;
+    --accent: #b3541e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #1a1510;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .page {
+    max-width: 860px;
+    margin: 40px auto;
+    background: var(--parchment);
+    background-image: radial-gradient(ellipse at top, #fbf6e8 0%, #f6efdd 60%, #ece1c6 100%);
+    border: 1px solid #d8c89a;
+    border-radius: 6px;
+    box-shadow: 0 10px 60px rgba(0,0,0,.6);
+    padding: 56px 64px;
+  }
+  header { text-align: center; border-bottom: 3px double var(--dark-gold); padding-bottom: 24px; margin-bottom: 32px; }
+  .sun {
+    font-size: 42px; color: var(--gold);
+    text-shadow: 0 0 18px rgba(201,162,39,.55);
+  }
+  h1 { font-variant: small-caps; letter-spacing: 3px; margin: 8px 0 4px; font-size: 34px; color: var(--dark-gold); }
+  .subtitle { font-style: italic; color: #6b5a35; margin: 0; }
+  h2 {
+    font-variant: small-caps; letter-spacing: 2px; color: var(--accent);
+    border-bottom: 1px solid #d8c89a; padding-bottom: 6px; margin-top: 40px; font-size: 22px;
+  }
+  h3 { color: var(--dark-gold); margin-bottom: 4px; font-size: 17px; }
+  .quote {
+    font-style: italic; text-align: center; color: #7a5a20;
+    margin: 18px auto; max-width: 620px; font-size: 18px;
+  }
+  .quote::before { content: '❝'; color: var(--gold); padding: 0 6px; }
+  .quote::after { content: '❞'; color: var(--gold); padding: 0 6px; }
+  table.info { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  table.info td { padding: 6px 10px; border-bottom: 1px dotted #cbbb8e; vertical-align: top; }
+  table.info td:first-child { font-weight: bold; color: var(--dark-gold); width: 190px; font-variant: small-caps; }
+  .trait-box {
+    background: rgba(201,162,39,.08); border-left: 4px solid var(--gold);
+    padding: 12px 18px; margin: 14px 0; border-radius: 0 4px 4px 0;
+  }
+  .trait-box strong { color: var(--accent); font-variant: small-caps; }
+  .hook { background: rgba(179,84,30,.07); border-left: 4px solid var(--accent); padding: 12px 18px; margin: 14px 0; border-radius: 0 4px 4px 0; }
+  .prayer {
+    border: 1px dashed var(--dark-gold); padding: 14px 20px; margin: 20px 0; border-radius: 4px;
+    font-style: italic; color: #5c4a22; text-align: center;
+  }
+  footer { text-align: center; margin-top: 48px; color: #8c7a4d; font-size: 13px; font-style: italic; border-top: 3px double var(--dark-gold); padding-top: 16px; }
+  ul { padding-left: 22px; }
+  li { margin: 5px 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<p style="max-width:860px;margin:0 auto;padding:0 8px;">
+  <a href="aurelio-chierico-sarenrae.html" style="color:#8a6d1a;text-decoration:none;font-style:italic;">← Torna ad Aurelio</a>
+  &nbsp;·&nbsp;
+  <a href="index.html" style="color:#8a6d1a;text-decoration:none;font-style:italic;">Guida alle regole</a>
+</p>
+
+<header>
+  <div class="sun">☀</div>
+  <h1>Sarenrae</h1>
+  <p class="subtitle">La Fiamma dell'Alba — dea del sole, della guarigione, dell'onestà e della redenzione</p>
+</header>
+
+<p class="quote">Ogni alba è una seconda possibilità. Per il mondo, e per chiunque la voglia afferrare.</p>
+
+<h2>Scheda del culto</h2>
+<table class="info">
+  <tr><td>Titoli</td><td>La Fiamma dell'Alba, la Luce Sanatrice, la Madre del Sole, la Sempre-Luce</td></tr>
+  <tr><td>Allineamento</td><td>Neutrale Buona</td></tr>
+  <tr><td>Dominî</td><td>Sole, guarigione, redenzione, onestà</td></tr>
+  <tr><td>Domini da chierico (5e)</td><td><strong>Vita</strong> (i guaritori del tempio) e <strong>Luce</strong> (i predicatori della fiamma)</td></tr>
+  <tr><td>Simbolo sacro</td><td>Sole nascente sull'orizzonte; nelle versioni più ricche, una figura alata con capelli di fuoco che sorge con esso</td></tr>
+  <tr><td>Arma sacra</td><td>La <strong>scimitarra</strong> — la lama curva che «taglia come il primo raggio dell'alba taglia la notte»</td></tr>
+  <tr><td>Colori del culto</td><td>Bianco, oro, arancio dell'alba</td></tr>
+  <tr><td>Fedeli tipici</td><td>Guaritori, ostetriche, contadini, naviganti, ex criminali redenti, chiunque abbia ricevuto una seconda possibilità</td></tr>
+</table>
+
+<h2>Chi è la Fiamma dell'Alba</h2>
+<p>Sarenrae è la dea che guarda il mondo con l'ostinato ottimismo di chi ha visto il male da vicino e ha scelto lo stesso di credere nelle persone. Non è una dea ingenua: è una dea <em>guerriera</em> che ha scelto la misericordia come prima arma — e la scimitarra come seconda.</p>
+<p>I suoi due volti sono inseparabili, e ogni accolito li impara insieme:</p>
+<div class="trait-box"><strong>La mano che guarisce.</strong> Sarenrae è prima di tutto guarigione: dei corpi, con le arti mediche e la magia; e delle anime, con la redenzione. Nessuno è perduto finché sceglie di cambiare strada. Al peccatore pentito si tende la mano, sempre, anche quando gli altri hanno smesso.</div>
+<div class="trait-box"><strong>La lama dell'alba.</strong> Ma la misericordia offerta e <em>rifiutata</em> cambia le cose. Chi si aggrappa al male dopo che gli è stata offerta la luce — il crudele impenitente, il non morto, ciò che è marcio fino al cuore — incontra l'altro volto della dea. La scimitarra di Sarenrae colpisce in fretta e senza odio, come si recide un ramo malato: non punizione, chirurgia.</div>
+
+<h2>Il mito che si insegna al tempio</h2>
+<p>Ogni accolito lo impara dalla Madre o dal Padre superiore, di solito all'alba, di solito con il sole negli occhi:</p>
+<p>All'inizio dei tempi una Bestia divoratrice — il tempio la chiama <em>il Distruttore</em>, e non le concede altro nome — squarciava la creazione, e nessuno tra gli dèi osava affrontarla. Fu Sarenrae, allora solo un angelo del sole, a scendere per prima con la scimitarra in pugno. Aprì lei la ferita con cui il Distruttore fu ricacciato e sigillato nelle profondità del mondo, e per quel coraggio ascese come dea dell'alba: <em>perché l'alba è esattamente questo — la luce che torna a battersi contro il buio, ogni singolo giorno, senza mai stancarsi.</em></p>
+<p>La morale che il tempio ne trae: il male non si estirpa una volta per tutte. Si tiene a bada ogni giorno, con costanza, come il sole. Per questo i fedeli non adorano la vittoria: adorano il <em>ritorno</em>, il rialzarsi, il riprovarci.</p>
+
+<h2>Editti e anatemi</h2>
+<p>Quello che un chierico consacrato promette di fare — e di non fare mai.</p>
+<h3>La dea chiede (editti)</h3>
+<ul>
+  <li><strong>Saluta l'alba.</strong> La preghiera del mattino, rivolta a est, è il rito fondamentale del culto. Ovunque tu sia, qualunque cosa succeda.</li>
+  <li><strong>Guarisci chi soffre</strong>, senza chiedere se lo merita. Il corpo prima, le domande poi.</li>
+  <li><strong>Offri la redenzione</strong> prima della lama: al nemico che può arrendersi si offre di arrendersi.</li>
+  <li><strong>Dì la verità.</strong> La luce non ha ombre in cui nascondersi: l'onestà è culto quanto la preghiera.</li>
+  <li><strong>Distruggi il male impenitente</strong> — in particolare i non morti, oltraggio al ciclo del sole che sorge e tramonta — con decisione e senza crudeltà.</li>
+</ul>
+<h3>La dea vieta (anatemi)</h3>
+<ul>
+  <li><strong>Mentire.</strong> Il peccato più caratteristico del culto. Tacere è concesso, ingannare no.</li>
+  <li><strong>Negare la mano al pentito sincero</strong>, per quanto grave sia stato il suo male.</li>
+  <li><strong>Creare o servire la non morte</strong>, o lasciarla esistere potendola distruggere.</li>
+  <li><strong>Prolungare una sofferenza</strong> — la tortura, l'agonia inflitta, la crudeltà «a fin di bene».</li>
+</ul>
+<div class="hook"><strong>Il dilemma classico del chierico di Sarenrae:</strong> quando smetti di offrire la mano e sguaini la scimitarra? Il culto non dà una risposta fissa — dà un ordine: <em>prima la mano, sempre. Poi, se la mano viene morsa, la lama, senza esitare e senza odio.</em> Ogni chierico traccia quel confine da sé, e i migliori se lo tormentano per tutta la vita.</div>
+
+<h2>Il culto: templi, riti, feste</h2>
+<h3>I templi</h3>
+<p>Aperti, luminosi, orientati a est, con il rito principale celebrato all'aperto quando possibile. Quasi tutti hanno un'<strong>infermeria o un ospizio</strong>: per la gente comune «il tempio di Sarenrae» è prima di tutto <em>il posto dove ti curano</em>, spesso gratis, sempre senza domande. È il culto più amato dai poveri per questo motivo.</p>
+<h3>I riti quotidiani</h3>
+<ul>
+  <li><strong>Preghiera dell'alba:</strong> all'aperto, verso est, in piedi. È il momento in cui il chierico prepara i suoi incantesimi. Perderla senza motivo grave è vergogna; saltarla per curare qualcuno è invece perfettamente gradito alla dea.</li>
+  <li><strong>La danza delle lame:</strong> i sacerdoti guerrieri pregano anche così — una danza con la scimitarra, lenta e circolare come il percorso del sole. Anche chi non combatte la impara come meditazione.</li>
+  <li><strong>La confessione dell'onestà:</strong> a ogni tramonto il fedele ripassa la giornata e ammette a se stesso (e alla dea) ogni verità taciuta o piegata.</li>
+</ul>
+<h3>Le feste</h3>
+<ul>
+  <li><strong>Festa dell'Alba Lunga</strong> (solstizio d'estate): il giorno più lungo dell'anno, celebrazione, matrimoni, guarigioni pubbliche gratuite. <em>(È la mattina in cui Aurelio fu trovato sui gradini del tempio.)</em></li>
+  <li><strong>Le Lame Ardenti:</strong> festa di inizio estate in cui i danzatori si esibiscono con scimitarre avvolte in fiamme innocue — memoria della prima carica di Sarenrae contro il Distruttore.</li>
+</ul>
+
+<h2>Amici e nemici della fede</h2>
+<table class="info">
+  <tr><td>Il culto rispetta</td><td>Le divinità della vita, della luce, della comunità e del raccolto; i guaritori di ogni fede; chiunque protegga i deboli</td></tr>
+  <tr><td>Il culto diffida di</td><td>Divinità e culti dell'inganno e dell'ombra — non per l'oscurità in sé, ma per la menzogna; anche la notte è parte del ciclo del sole</td></tr>
+  <tr><td>Il culto combatte</td><td><strong>La non morte in ogni forma</strong> (il nemico rituale per eccellenza — ecco perché Scacciare i Non Morti è il tuo Incanalare di base), i demoni, i cultisti del Distruttore, i torturatori e chi commercia in sofferenza</td></tr>
+</table>
+
+<h2>Cosa significa, in pratica, esserne chierico al tavolo</h2>
+<p>Tutto quello che hai sulla scheda è teologia applicata:</p>
+<ul>
+  <li><strong>La preghiera dell'alba = preparare gli incantesimi.</strong> Ogni mattina scegli gli incantesimi preparati: in gioco, è Aurelio sul tetto che chiacchiera con la dea.</li>
+  <li><strong>Incanalare Divinità = il favore della dea, in prestito.</strong> <em>Scacciare Non Morti</em> è il sole che si alza in una cripta; <em>Preservare Vita</em> (dominio Vita) è la mano della dea che passa in mezzo ai feriti.</li>
+  <li><strong>Curare uno sconosciuto non è una spesa, è culto.</strong> Uno slot usato su un contadino ferito vale come una preghiera.</li>
+  <li><strong>Offri la resa almeno una volta</strong> quando è sensato: «Arrenditi. Te lo chiedo una volta sola.» Poi via di <em>fiamma sacra</em> senza rimorsi.</li>
+  <li><strong>Niente bugie.</strong> Half-truth, silenzi teatrali, cambi di discorso: sì. Bugia diretta: no. (Per Aurelio è facile: è troppo vanitoso per fingere di essere qualcun altro.)</li>
+  <li><strong>I non morti non si negoziano.</strong> Davanti a uno zombi, il chierico di Sarenrae non discute la linea tattica: avanza.</li>
+</ul>
+
+<h2>Piccolo breviario (da citare in gioco)</h2>
+<div class="prayer">«Luce dell'alba, passa per le mie mani.»<br><span style="font-size:13px">— formula breve di guarigione, quella che un chierico mormora lanciando <em>cura ferite</em></span></div>
+<div class="prayer">«Il sole non chiede alla notte il permesso di sorgere.»<br><span style="font-size:13px">— detto del culto per farsi coraggio (e, in bocca ad Aurelio, per giustificarsi)</span></div>
+<div class="prayer">«Ti è offerta l'alba. Prendila, o prenditi le conseguenze.»<br><span style="font-size:13px">— l'offerta di redenzione tradizionale, pronunciata una volta sola</span></div>
+
+<footer>Manuale del fedele — Tempio di Sarenrae, Glyranna · «Ogni alba è una seconda possibilità»</footer>
+
+</div>
+</body>
+</html>
