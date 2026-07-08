@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurelio Solari — Chierico di Sarenrae</title>
+<style>
+  :root {
+    --gold: #c9a227;
+    --dark-gold: #8a6d1a;
+    --parchment: #f6efdd;
+    --ink: #2c2418;
+    --accent: #b3541e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #1a1510;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .page {
+    max-width: 860px;
+    margin: 40px auto;
+    background: var(--parchment);
+    background-image: radial-gradient(ellipse at top, #fbf6e8 0%, #f6efdd 60%, #ece1c6 100%);
+    border: 1px solid #d8c89a;
+    border-radius: 6px;
+    box-shadow: 0 10px 60px rgba(0,0,0,.6);
+    padding: 56px 64px;
+  }
+  header { text-align: center; border-bottom: 3px double var(--dark-gold); padding-bottom: 24px; margin-bottom: 32px; }
+  .sun {
+    font-size: 42px; color: var(--gold);
+    text-shadow: 0 0 18px rgba(201,162,39,.55);
+  }
+  h1 { font-variant: small-caps; letter-spacing: 3px; margin: 8px 0 4px; font-size: 34px; color: var(--dark-gold); }
+  .subtitle { font-style: italic; color: #6b5a35; margin: 0; }
+  h2 {
+    font-variant: small-caps; letter-spacing: 2px; color: var(--accent);
+    border-bottom: 1px solid #d8c89a; padding-bottom: 6px; margin-top: 40px; font-size: 22px;
+  }
+  h3 { color: var(--dark-gold); margin-bottom: 4px; font-size: 17px; }
+  .quote {
+    font-style: italic; text-align: center; color: #7a5a20;
+    margin: 18px auto; max-width: 620px; font-size: 18px;
+  }
+  .quote::before, .quote::after { content: '❝'; color: var(--gold); padding: 0 6px; }
+  .quote::after { content: '❞'; }
+  table.info { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  table.info td { padding: 6px 10px; border-bottom: 1px dotted #cbbb8e; vertical-align: top; }
+  table.info td:first-child { font-weight: bold; color: var(--dark-gold); width: 190px; font-variant: small-caps; }
+  .trait-box {
+    background: rgba(201,162,39,.08); border-left: 4px solid var(--gold);
+    padding: 12px 18px; margin: 14px 0; border-radius: 0 4px 4px 0;
+  }
+  .trait-box strong { color: var(--accent); font-variant: small-caps; }
+  .hook { background: rgba(179,84,30,.07); border-left: 4px solid var(--accent); padding: 12px 18px; margin: 14px 0; border-radius: 0 4px 4px 0; }
+  .secret { border: 1px dashed var(--accent); padding: 14px 20px; margin: 20px 0; border-radius: 4px; }
+  .secret h3 { margin-top: 0; }
+  footer { text-align: center; margin-top: 48px; color: #8c7a4d; font-size: 13px; font-style: italic; border-top: 3px double var(--dark-gold); padding-top: 16px; }
+  ul { padding-left: 22px; }
+  li { margin: 5px 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<p style="max-width:860px;margin:0 auto;padding:0 8px;"><a href="dnd-index.html" style="color:#8a6d1a;text-decoration:none;font-style:italic;">← Indice della campagna</a></p>
+
+<header>
+  <div class="sun">☀</div>
+  <h1>Aurelio Solari</h1>
+  <p class="subtitle">«Il Prediletto dell'Alba» — Chierico di Sarenrae, Tempio di Glyranna</p>
+</header>
+
+<p class="quote">Non è arroganza se è la verità. La Fiamma dell'Alba mi ha scelto, e chi sono io per contraddire una dea?</p>
+
+<h2>Scheda rapida</h2>
+<table class="info">
+  <tr><td>Nome</td><td>Aurelio Solari — al tempio lo chiamano <em>«il Prediletto»</em> (metà con affetto, metà con fastidio)</td></tr>
+  <tr><td>Età</td><td>19 anni</td></tr>
+  <tr><td>Razza suggerita</td><td>Umano (o Aasimar, se il DM approva — spiegherebbe fin troppo bene il suo talento)</td></tr>
+  <tr><td>Classe</td><td>Chierico di Sarenrae (dominio suggerito: Vita o Luce)</td></tr>
+  <tr><td>Divinità</td><td>Sarenrae, la Fiamma dell'Alba — sole, guarigione, redenzione, onestà</td></tr>
+  <tr><td>Casa</td><td>Tempio di Sarenrae, Glyranna — città portuale sulla Costa della Spada</td></tr>
+  <tr><td>Allineamento</td><td>Neutrale Buono (con forti tentazioni di Legale Presuntuoso)</td></tr>
+  <tr><td>Simbolo sacro</td><td>Medaglione d'ottone a forma di sole nascente, lucidato ossessivamente ogni mattina</td></tr>
+</table>
+
+<h2>Aspetto</h2>
+<p>Alto, ben fatto, con la postura di chi non ha mai dubitato di essere guardato. Capelli color rame che al sole sembrano prendere fuoco — Aurelio giura che è un segno della dea, i confratelli giurano che ci passa un'ora ogni mattina. Occhi ambrati, sorriso pronto e leggermente insopportabile. Indossa la veste bianca e oro del tempio sempre immacolata, e una scimitarra cerimoniale al fianco che maneggia con eleganza sospetta per uno che «predica la pace».</p>
+
+<h2>Background</h2>
+
+<h3>L'alba del trovatello</h3>
+<p>Diciannove anni fa, la mattina della festa dell'Alba Lunga, le sacerdotesse di Glyranna trovarono un neonato in una cesta sui gradini del tempio. Nessun biglietto, nessun nome — solo una moneta d'oro consumata e il bambino che, invece di piangere, fissava il sole nascente ridendo. Lo chiamarono Aurelio, «il dorato», e la Madre Casselia — la vecchia guaritrice del tempio — se lo prese in carico come fosse suo.</p>
+
+<h3>Il talento</h3>
+<p>A sei anni riportò in vita un passero che si era spezzato il collo contro una vetrata, tenendolo tra le mani e <em>chiedendo</em> semplicemente alla luce di aggiustarlo. A dodici, durante la febbre grigia che colpì il quartiere del porto, guarì più malati lui in una settimana che tre chierici consacrati in un mese — e si addormentò sorridendo, per niente stanco. Gli altri accoliti studiano anni per sentire un sussurro della dea; Aurelio la sente <em>ridere</em>, come una sorella maggiore che gli scompiglia i capelli.</p>
+<p>E questo è esattamente il problema.</p>
+
+<h3>Il difetto</h3>
+<p>Tutto gli è sempre venuto facile: le preghiere, le guarigioni, i favori della gente, perfino la scimitarra. Non ha mai fallito davvero, e quindi non ha mai imparato cosa si prova. È generoso — guarisce chiunque, senza chiedere nulla — ma con la stessa naturalezza con cui un principe lancia monete alla folla: dall'alto verso il basso. I suoi pari lo trovano insopportabile. I maestri lo trovano insopportabile <em>e</em> hanno ragione a preoccuparsi: Sarenrae è la dea della redenzione, e la redenzione la capisce solo chi è caduto almeno una volta.</p>
+
+<h3>La convocazione</h3>
+<p>Quando la Regina di Glyranna ha chiesto al tempio un chierico per assistere una piccola compagnia di avventurieri, il Padre Superiore Adran ha convocato Aurelio nel suo studio e gli ha parlato per quasi un'ora — del compito, dei pericoli, dell'umiltà, di cosa significhi servire. Aurelio ha annuito nei punti giusti, ha ammirato il proprio riflesso nel vetro della libreria, e ne è uscito sapendo esattamente due cose: la Regina in persona ha chiesto aiuto al tempio, e hanno mandato <em>lui</em>. Ovvio. Hanno mandato il migliore.</p>
+<p>Quello che non ha sentito — perché non stava ascoltando — è tutto il resto.</p>
+
+<h2>Personalità</h2>
+<div class="trait-box"><strong>Tratto:</strong> Tratta ogni problema come già risolto: «Sì sì, tranquilli, ci penso io» — e la cosa irritante è che finora ha sempre avuto ragione.</div>
+<div class="trait-box"><strong>Tratto:</strong> Genuinamente gentile con i deboli e i malati. La sua arroganza si accende solo con chi si crede alla sua altezza.</div>
+<div class="trait-box"><strong>Ideale:</strong> <em>La luce non si chiede se merita di splendere. Splende.</em> (Il potere va usato per gli altri — ma senza falsa modestia.)</div>
+<div class="trait-box"><strong>Legame:</strong> La Madre Casselia, che l'ha cresciuto. L'unica persona al mondo davanti a cui abbassa la testa. Le ha promesso di tornare «con storie migliori delle sue».</div>
+<div class="trait-box"><strong>Difetto:</strong> Non ha mai fallito, quindi non sa perdere: davanti al primo vero fallimento potrebbe spezzarsi — o crescere. Inoltre: non ascolta. Mai. Dettagli fondamentali inclusi.</div>
+
+<h2>Rapporto con Sarenrae</h2>
+<p>Per Aurelio la dea non è una figura distante da temere: è una presenza calda, costante, quasi affettuosa. Prega all'alba sul tetto del tempio, a voce alta, come se chiacchierasse. È sinceramente devoto — non recita — ma la sua fede non è mai stata messa alla prova. Confonde il dono con il merito: crede che Sarenrae lo ami perché è speciale, quando forse è speciale perché lei ha in mente qualcosa per lui. La differenza, un giorno, farà male.</p>
+
+<h2>Ganci per il DM</h2>
+<div class="hook"><strong>La cesta e la moneta.</strong> La moneta d'oro consumata trovata nella cesta ha un conio che nessuno a Glyranna ha mai riconosciuto. Aurelio la porta al collo insieme al simbolo sacro. Chi l'ha lasciata? Perché proprio quel tempio?</div>
+<div class="hook"><strong>Il vero incarico.</strong> Il Padre Superiore Adran non ha scelto Aurelio perché è il migliore: l'ha scelto perché la strada è l'unica maestra rimasta che può insegnargli l'umiltà. Potrebbe perfino aver detto alla compagnia qualcosa che Aurelio ignora.</div>
+<div class="hook"><strong>Il rivale.</strong> Fratello Devan, accolito coetaneo: metà del talento, il doppio della disciplina. Odia Aurelio con tutto il cuore e la dea, ironicamente, sembra apprezzarli entrambi.</div>
+<div class="hook"><strong>Le istruzioni perdute.</strong> Qualsiasi cosa il Padre Superiore abbia detto in quell'ora di colloquio, Aurelio non la sa. Il DM sì. Divertitevi.</div>
+
+<div class="secret">
+<h3>☀ Il seme dell'arco narrativo</h3>
+<p>Aurelio è costruito per cadere e rialzarsi: la prima volta che la sua magia <em>non basterà</em> — un compagno che non riesce a salvare, una preghiera che resta senza risposta — sarà il momento più importante del personaggio. Sarenrae è la dea delle seconde possibilità: il suo prediletto deve prima capire di averne bisogno.</p>
+</div>
+
+<h2>Scheda meccanica (solo Manuale del Giocatore)</h2>
+<table class="info">
+  <tr><td>Razza</td><td>Umano (standard: +1 a tutte le caratteristiche)</td></tr>
+  <tr><td>Classe</td><td>Chierico 3 — <strong>Dominio della Vita</strong> (il prodigio guaritore del background; alternativa: Dominio della Luce, più scenografico)</td></tr>
+  <tr><td>PF / CA</td><td>24 PF (8+5+5 + COS) · CA 18 (cotta di maglia 16 + scudo 2)</td></tr>
+  <tr><td>Incantesimi: numeri</td><td>CD tiro salvezza 13 · attacco magico +5 · slot: 4 di 1° e 2 di 2°</td></tr>
+  <tr><td>Incanalare Divinità</td><td>1/riposo: <em>Scacciare Non Morti</em> oppure <em>Preservare Vita</em> (distribuisce 15 PF di cura tra i feriti — il momento «ci penso io» per eccellenza)</td></tr>
+  <tr><td>Background</td><td><strong>Accolito</strong> — competenze Intuizione e Religione; privilegio <em>Rifugio dei Fedeli</em> (i templi di Sarenrae lo ospitano e assistono)</td></tr>
+  <tr><td>Caratteristiche</td><td>FOR 14 · DES 9 · COS 15 · INT 11 · SAG 16 · CAR 13 <em>(array standard + umano)</em></td></tr>
+  <tr><td>Abilità di classe</td><td>Medicina, Persuasione (in aggiunta a Intuizione e Religione dall'accolito)</td></tr>
+  <tr><td>Trucchetti</td><td><em>Fiamma Sacra, Luce, Guida</em> — tutti e tre perfetti per Sarenrae</td></tr>
+  <tr><td>Sempre preparati (Vita)</td><td>1°: <em>Benedizione, Cura Ferite</em> · 2°: <em>Ristorare Inferiore, Arma Spirituale</em> (gratis dal dominio)</td></tr>
+  <tr><td>Preparati (6)</td><td>1°: <em>Parola Guaritrice, Dardo Guidato, Scudo della Fede, Individuazione del Magico</em> · 2°: <em>Aiuto, Preghiera di Guarigione</em></td></tr>
+  <tr><td>Nota di stile</td><td><em>Arma Spirituale</em> può avere qualsiasi forma: la sua è ovviamente una <strong>scimitarra di luce dorata</strong> — la scimitarra di Sarenrae che combatte al posto suo. Lui la cerimoniale continua a non usarla.</td></tr>
+  <tr><td>Tratto di dominio</td><td><em>Discepolo della Vita</em>: ogni cura fa +2+livello slot PF extra — il talento «innaturale» del background reso in regole</td></tr>
+  <tr><td>Equipaggiamento</td><td>Cotta di maglia (il dominio Vita dà armature pesanti), mazza, scudo con il sole di Sarenrae come simbolo sacro, zaino da sacerdote, vesti, 15 mo</td></tr>
+  <tr><td>La scimitarra</td><td>Solo cerimoniale: i chierici NON sono competenti con la scimitarra nel manuale base. La porta, la lucida, la sfodera con gesto teatrale — e non l'ha mai usata in un vero combattimento. Gag pronta.</td></tr>
+</table>
+
+<h2>Come interpretarlo al tavolo</h2>
+<ul>
+  <li>Offriti di risolvere tutto, anche quello che non sai fare. <em>Soprattutto</em> quello che non sai fare.</li>
+  <li>Guarisci senza che te lo chiedano, e falla sembrare una cortesia regale.</li>
+  <li>Chiedi «scusa, chi sei tu di preciso?» a persone importanti che avresti dovuto conoscere dal briefing.</li>
+  <li>Sii sinceramente buono: l'arroganza è il guscio, non il cuore. Il tavolo deve volergli bene <em>nonostante</em> tutto.</li>
+  <li>Quando qualcosa va storto per colpa tua, la prima reazione è sorpresa autentica: «Strano. Non succede mai.»</li>
+</ul>
+
+<footer>Tempio di Sarenrae — Glyranna, Costa della Spada · «La Fiamma dell'Alba illumina anche chi si crede già luce»</footer>
+
+</div>
+</body>
+</html>
