@@ -147,7 +147,7 @@
   <div class="grid cols-3">
     <div class="field"><label>Nome personaggio</label><input data-f="nome" value="Aurelio"></div>
     <div class="field"><label>Classe & Livello</label><input data-f="classe" value="Chierico 3"></div>
-    <div class="field"><label>Razza</label><input data-f="razza"></div>
+    <div class="field"><label>Razza</label><input data-f="razza" value="Umano"></div>
     <div class="field"><label>Background</label><input data-f="background" value="Accolito"></div>
     <div class="field"><label>Allineamento</label><input data-f="allineamento" value="Neutrale Buono"></div>
     <div class="field"><label>Divinità / Dominio</label><input data-f="divinita" value="Sarenrae — Dominio: Vita (o Luce)"></div>
@@ -333,7 +333,7 @@ const SLOTS = [
 const KEY = 'dnd-scheda-chierico';
 
 const state = {
-  scores: {for:10,des:10,cos:10,int:10,sag:16,car:10},
+  scores: {for:14,des:9,cos:15,int:11,sag:16,car:13},
   saveProf: {sag:true, car:true},
   skillProf: {},
   death: {good:0, bad:0},
