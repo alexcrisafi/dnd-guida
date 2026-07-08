@@ -6,16 +6,16 @@
 <title>D&D 5e — Guida rapida Chierico liv. 3</title>
 <style>
   :root {
-    --bg: #1a1626;
-    --panel: #241f33;
-    --panel-2: #2c2640;
-    --text: #e8e2f4;
-    --muted: #a99fc4;
-    --gold: #e8b84b;
-    --accent: #8f6fe8;
-    --good: #5ec97b;
-    --bad: #e8615c;
-    --border: #3a3352;
+    --bg: #f4f6f8;
+    --panel: #ffffff;
+    --panel-2: #eef2f5;
+    --text: #24303a;
+    --muted: #5d6b78;
+    --gold: #1f6f6b;      /* teal — titoli/accento caldo sostituito */
+    --accent: #2f6fb0;    /* blu — sotto-accento */
+    --good: #2e7d5b;
+    --bad: #c0483f;
+    --border: #d5dde3;
   }
   * { box-sizing: border-box; }
   body {
@@ -26,26 +26,47 @@
     line-height: 1.55;
   }
   header {
-    background: linear-gradient(135deg, #2b1f4d, #1a1626);
+    background: linear-gradient(135deg, #e3edf0, #f4f6f8);
     padding: 28px 24px 20px;
     border-bottom: 2px solid var(--gold);
   }
   header h1 { margin: 0 0 4px; font-size: 1.6rem; color: var(--gold); }
   header p { margin: 0; color: var(--muted); font-size: 0.95rem; }
   nav {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(26,22,38,0.97);
-    border-bottom: 1px solid var(--border);
-    padding: 8px 16px;
-    display: flex; flex-wrap: wrap; gap: 6px;
+    position: fixed; top: 0; left: 0; bottom: 0;
+    width: 220px; z-index: 10;
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    padding: 20px 12px;
+    display: flex; flex-direction: column; gap: 2px;
+    overflow-y: auto;
+  }
+  nav .nav-title {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: .08em;
+    color: var(--muted); font-weight: 700;
+    padding: 4px 12px 10px;
   }
   nav a {
-    color: var(--muted); text-decoration: none;
-    padding: 4px 10px; border-radius: 999px;
-    font-size: 0.85rem; border: 1px solid transparent;
+    color: var(--text); text-decoration: none;
+    padding: 8px 12px; border-radius: 8px;
+    font-size: 0.9rem; border-left: 3px solid transparent;
   }
-  nav a:hover { color: var(--gold); border-color: var(--gold); }
+  nav a:hover { background: var(--panel-2); color: var(--gold); }
+  nav a.active { background: var(--panel-2); color: var(--gold); border-left-color: var(--gold); font-weight: 600; }
+  .layout { margin-left: 220px; }
   main { max-width: 900px; margin: 0 auto; padding: 24px 20px 80px; }
+  @media (max-width: 720px) {
+    nav {
+      position: static; width: auto; bottom: auto;
+      flex-direction: row; flex-wrap: wrap; gap: 6px;
+      border-right: none; border-bottom: 1px solid var(--border);
+      padding: 10px 12px;
+    }
+    nav .nav-title { display: none; }
+    nav a { border-left: none; padding: 4px 10px; border-radius: 999px; font-size: 0.82rem; }
+    nav a.active { border-left: none; }
+    .layout { margin-left: 0; }
+  }
   section { margin-bottom: 12px; }
   details {
     background: var(--panel);
@@ -76,13 +97,13 @@
   }
   th, td { padding: 7px 10px; border: 1px solid var(--border); text-align: left; }
   th { background: var(--panel-2); color: var(--gold); }
-  tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  tr:nth-child(even) td { background: rgba(0,0,0,0.03); }
   code, .k {
     background: var(--panel-2);
     padding: 1px 6px; border-radius: 5px;
     font-family: ui-monospace, Menlo, monospace;
     font-size: 0.88em;
-    color: #f0c96b;
+    color: #b5541e;
   }
   .callout {
     border-left: 4px solid var(--gold);
@@ -99,8 +120,8 @@
     padding: 2px 8px; border-radius: 999px; margin-left: 6px;
     vertical-align: middle; text-transform: uppercase; letter-spacing: .04em;
   }
-  .badge.core { background: #4a3a7d; color: #d8c9ff; }
-  .badge.cleric { background: #7d5a1e; color: #ffe3a3; }
+  .badge.core { background: #dce7f2; color: #2f6fb0; }
+  .badge.cleric { background: #d6ebe8; color: #1f6f6b; }
   ul { margin: 8px 0; padding-left: 22px; }
   li { margin: 4px 0; }
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -120,23 +141,26 @@
 </head>
 <body>
 
+<nav>
+  <div class="nav-title">Indice</div>
+  <a href="#d20">🎲 Meccanica d20</a>
+  <a href="#caratteristiche">💪 Caratteristiche</a>
+  <a href="#vantaggio">⚖️ Vantaggio/Svantaggio</a>
+  <a href="#combattimento">⚔️ Combattimento</a>
+  <a href="#pf">❤️ PF & Morte</a>
+  <a href="#riposi">🏕️ Riposi</a>
+  <a href="#magia">✨ Magia</a>
+  <a href="#chierico">🛡️ Chierico</a>
+  <a href="#condizioni">🩸 Condizioni</a>
+  <a href="#studio">📚 Piano studio</a>
+</nav>
+
+<div class="layout">
+
 <header>
   <h1>⚔️ D&D 5e — Guida rapida</h1>
   <p>Obiettivo: chierico livello 3 efficiente. Fonte: <a href="https://5e.tools" style="color:var(--accent)">5e.tools</a> · <span class="updated">Aggiornata: 8 lug 2026</span></p>
 </header>
-
-<nav>
-  <a href="#d20">Meccanica d20</a>
-  <a href="#caratteristiche">Caratteristiche</a>
-  <a href="#vantaggio">Vantaggio/Svantaggio</a>
-  <a href="#combattimento">Combattimento</a>
-  <a href="#pf">PF & Morte</a>
-  <a href="#riposi">Riposi</a>
-  <a href="#magia">Magia</a>
-  <a href="#chierico">Chierico</a>
-  <a href="#condizioni">Condizioni</a>
-  <a href="#studio">Piano studio</a>
-</nav>
 
 <main>
 
@@ -400,6 +424,22 @@
 <footer>
   Guida generata con Claude Code · si aggiorna man mano che copriamo argomenti nuovi
 </footer>
+
+</div><!-- /.layout -->
+
+<script>
+  const links = [...document.querySelectorAll('nav a')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        map.get(e.target.id)?.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
+</script>
 
 </body>
 </html>
