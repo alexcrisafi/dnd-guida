@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D&D 5e — Guida rapida Chierico liv. 3</title>
+<style>
+  :root {
+    --bg: #f4f6f8;
+    --panel: #ffffff;
+    --panel-2: #eef2f5;
+    --text: #24303a;
+    --muted: #5d6b78;
+    --gold: #1f6f6b;      /* teal — titoli/accento caldo sostituito */
+    --accent: #2f6fb0;    /* blu — sotto-accento */
+    --good: #2e7d5b;
+    --bad: #c0483f;
+    --border: #d5dde3;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  header {
+    background: linear-gradient(135deg, #e3edf0, #f4f6f8);
+    padding: 28px 24px 20px;
+    border-bottom: 2px solid var(--gold);
+  }
+  header h1 { margin: 0 0 4px; font-size: 1.6rem; color: var(--gold); }
+  header p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  nav {
+    position: fixed; top: 0; left: 0; bottom: 0;
+    width: 220px; z-index: 10;
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    padding: 20px 12px;
+    display: flex; flex-direction: column; gap: 2px;
+    overflow-y: auto;
+  }
+  nav .nav-title {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: .08em;
+    color: var(--muted); font-weight: 700;
+    padding: 4px 12px 10px;
+  }
+  nav a {
+    color: var(--text); text-decoration: none;
+    padding: 8px 12px; border-radius: 8px;
+    font-size: 0.9rem; border-left: 3px solid transparent;
+  }
+  nav a:hover { background: var(--panel-2); color: var(--gold); }
+  nav a.active { background: var(--panel-2); color: var(--gold); border-left-color: var(--gold); font-weight: 600; }
+  .layout { margin-left: 220px; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px 20px 80px; }
+  @media (max-width: 720px) {
+    nav {
+      position: static; width: auto; bottom: auto;
+      flex-direction: row; flex-wrap: wrap; gap: 6px;
+      border-right: none; border-bottom: 1px solid var(--border);
+      padding: 10px 12px;
+    }
+    nav .nav-title { display: none; }
+    nav a { border-left: none; padding: 4px 10px; border-radius: 999px; font-size: 0.82rem; }
+    nav a.active { border-left: none; }
+    .layout { margin-left: 0; }
+  }
+  section { margin-bottom: 12px; }
+  details {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  details[open] { border-color: var(--accent); }
+  summary {
+    cursor: pointer;
+    padding: 14px 18px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--gold);
+    list-style: none;
+    display: flex; align-items: center; gap: 10px;
+    user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "▸"; color: var(--accent); transition: transform .15s; }
+  details[open] summary::before { transform: rotate(90deg); }
+  .body { padding: 0 18px 18px; }
+  h3 { color: var(--accent); margin: 18px 0 8px; font-size: 1rem; }
+  table {
+    width: 100%; border-collapse: collapse; margin: 10px 0;
+    font-size: 0.9rem;
+  }
+  th, td { padding: 7px 10px; border: 1px solid var(--border); text-align: left; }
+  th { background: var(--panel-2); color: var(--gold); }
+  tr:nth-child(even) td { background: rgba(0,0,0,0.03); }
+  code, .k {
+    background: var(--panel-2);
+    padding: 1px 6px; border-radius: 5px;
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 0.88em;
+    color: #b5541e;
+  }
+  .callout {
+    border-left: 4px solid var(--gold);
+    background: var(--panel-2);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+  }
+  .callout.good { border-color: var(--good); }
+  .callout.bad { border-color: var(--bad); }
+  .callout b:first-child { color: var(--gold); }
+  .badge {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    padding: 2px 8px; border-radius: 999px; margin-left: 6px;
+    vertical-align: middle; text-transform: uppercase; letter-spacing: .04em;
+  }
+  .badge.core { background: #dce7f2; color: #2f6fb0; }
+  .badge.cleric { background: #d6ebe8; color: #1f6f6b; }
+  ul { margin: 8px 0; padding-left: 22px; }
+  li { margin: 4px 0; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
+  .mini {
+    background: var(--panel-2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px;
+  }
+  .mini h4 { margin: 0 0 6px; color: var(--gold); font-size: 0.9rem; }
+  .mini p, .mini ul { margin: 0; font-size: 0.88rem; color: var(--text); }
+  footer {
+    text-align: center; color: var(--muted); font-size: 0.8rem;
+    padding: 20px; border-top: 1px solid var(--border);
+  }
+  .updated { color: var(--good); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-title">Indice</div>
+  <a href="#d20">🎲 Meccanica d20</a>
+  <a href="#caratteristiche">💪 Caratteristiche</a>
+  <a href="#vantaggio">⚖️ Vantaggio/Svantaggio</a>
+  <a href="#combattimento">⚔️ Combattimento</a>
+  <a href="#pf">❤️ PF & Morte</a>
+  <a href="#riposi">🏕️ Riposi</a>
+  <a href="#magia">✨ Magia</a>
+  <a href="#chierico">🛡️ Chierico</a>
+  <a href="#condizioni">🩸 Condizioni</a>
+  <a href="#studio">📚 Piano studio</a>
+  <a href="scheda.html" style="margin-top:12px; background:var(--gold); color:#fff; text-align:center; border-left:none;">📜 Scheda personaggio</a>
+</nav>
+
+<div class="layout">
+
+<header>
+  <h1>⚔️ D&D 5e — Guida rapida</h1>
+  <p>Obiettivo: chierico livello 3 efficiente. Fonte: <a href="https://5e.tools" style="color:var(--accent)">5e.tools</a> · <span class="updated">Aggiornata: 8 lug 2026</span></p>
+</header>
+
+<main>
+
+<section id="d20">
+<details open>
+<summary>🎲 Meccanica base: il d20 <span class="badge core">core</span></summary>
+<div class="body">
+  <p>Tutto il gioco è una formula: <code>d20 + modificatore vs numero bersaglio</code>.</p>
+  <table>
+    <tr><th>Tiro</th><th>Formula</th><th>Contro</th><th>Quando</th></tr>
+    <tr><td><b>Prova di caratteristica</b></td><td>d20 + mod (+ comp. se abile)</td><td>CD fissata dal DM (10–20)</td><td>Azione attiva: scalare, persuadere, percepire</td></tr>
+    <tr><td><b>Tiro salvezza</b></td><td>d20 + mod (+ comp. se di classe)</td><td>CD dell'effetto</td><td>Reattivo: eviti veleno, palla di fuoco, charme</td></tr>
+    <tr><td><b>Tiro per colpire</b></td><td>d20 + mod (+ comp.)</td><td>CA del bersaglio</td><td>Attacchi con arma o incantesimo</td></tr>
+  </table>
+  <div class="callout">
+    <b>Critici:</b> 20 naturale sul tiro per colpire = colpisci sempre + <b>raddoppi i dadi</b> di danno. 1 naturale = manchi sempre. Vale solo per gli attacchi, non per prove o TS.
+  </div>
+</div>
+</details>
+</section>
+
+<section id="caratteristiche">
+<details>
+<summary>💪 Caratteristiche & Competenza <span class="badge core">core</span></summary>
+<div class="body">
+  <p>Sei caratteristiche: <b>FOR, DES, COS, INT, SAG, CAR</b>. Punteggio 8–20 → modificatore = <code>(punteggio − 10) / 2</code> arrotondato per difetto.</p>
+  <table>
+    <tr><th>Punteggio</th><td>8–9</td><td>10–11</td><td>12–13</td><td>14–15</td><td>16–17</td><td>18–19</td><td>20</td></tr>
+    <tr><th>Modificatore</th><td>−1</td><td>+0</td><td>+1</td><td>+2</td><td>+3</td><td>+4</td><td>+5</td></tr>
+  </table>
+  <h3>Bonus di competenza (proficiency)</h3>
+  <p>Unico numero che scala col livello: <b>+2 ai livelli 1–4</b> (quindi +2 per te). Si somma solo dove sei competente: armi note, TS di classe, abilità scelte, incantesimi.</p>
+  <div class="callout good">
+    <b>Per il chierico:</b> <b>SAG governa tutto</b> — attacco con incantesimi, CD degli incantesimi, numero di incantesimi preparati. COS seconda priorità (PF + concentrazione). TS di classe: <b>SAG e CAR</b>.
+  </div>
+</div>
+</details>
+</section>
+
+<section id="vantaggio">
+<details>
+<summary>⚖️ Vantaggio / Svantaggio <span class="badge core">core</span></summary>
+<div class="body">
+  <p>Cuore del 5e, niente pile di modificatori situazionali.</p>
+  <div class="grid2">
+    <div class="mini"><h4>✅ Vantaggio</h4><p>Tiri <b>2d20, tieni il più alto</b>. Modificatori applicati dopo, al dado tenuto.</p></div>
+    <div class="mini"><h4>❌ Svantaggio</h4><p>Tiri <b>2d20, tieni il più basso</b>. Idem per i modificatori.</p></div>
+  </div>
+  <h3>Regole di interazione — 3 casi</h3>
+  <ul>
+    <li><b>Più fonti di vantaggio</b> = sempre e solo 2 dadi. Tre alleati che aiutano ≠ 4d20.</li>
+    <li><b>Più fonti di svantaggio</b> = idem, 2 dadi prendi il peggiore.</li>
+    <li><b>Vantaggio + svantaggio</b> = <b>si annullano</b>, 1d20 normale. Annullamento totale anche se sbilanciato: 3 vantaggi + 1 svantaggio = tiro normale. Non si contano, si annullano e basta.</li>
+  </ul>
+  <h3>Quanto vale (matematica)</h3>
+  <ul>
+    <li>Vantaggio ≈ <b>+3/+5</b> equivalente; massimo quando serve un numero medio (~11), poco ai bordi.</li>
+    <li>Probabilità di 20 naturale: 5% → <b>9,75%</b> con vantaggio; 0,25% con svantaggio.</li>
+    <li>Con svantaggio, fare almeno 10 scende da 55% a ~30%. Fa male.</li>
+  </ul>
+  <div class="grid2">
+    <div class="mini">
+      <h4>Fonti comuni di VANTAGGIO</h4>
+      <ul>
+        <li>Attacchi vs bersaglio <b>prono</b> (solo mischia! a distanza è svantaggio)</li>
+        <li>Vs <b>accecato, trattenuto, stordito, paralizzato</b></li>
+        <li>Attaccante <b>nascosto/invisibile</b></li>
+        <li>Azione <b>Aiuto</b> di un alleato</li>
+        <li>Fiancheggiamento (regola opzionale — chiedi al DM)</li>
+      </ul>
+    </div>
+    <div class="mini">
+      <h4>Fonti comuni di SVANTAGGIO</h4>
+      <ul>
+        <li>Attacco a distanza con <b>nemico entro 1,5 m</b></li>
+        <li>Attacco a <b>lunga gittata</b></li>
+        <li>Tu sei: prono, avvelenato, spaventato, trattenuto, accecato</li>
+        <li><b>Armatura senza competenza</b>: svantaggio su tutto FOR/DES</li>
+        <li>Furtività in cotta di maglia (classico chierico)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout good">
+    <b>Punto chiave chierico:</b> il "non cumulabile" vale solo tra vantaggi. Bonus fissi e dadi extra sono altra categoria e <b>si sommano sopra</b>: <i>benedizione</i> (+1d4 al tiro) e <i>guida</i> (+1d4 a prova) cumulano col vantaggio. Tu fabbrichi bonus che scavalcano la regola del non-cumulo.
+  </div>
+  <div class="callout">
+    <b>Nota tattica:</b> <i>fiamma sacra</i> non fa tiro per colpire — è TS DES del nemico: vantaggio/svantaggio sui tuoi attacchi lì non conta. E se il nemico è già prono davanti al guerriero, gli alleati in mischia hanno già vantaggio: tu lancia <i>benedizione</i>.
+  </div>
+</div>
+</details>
+</section>
+
+<section id="combattimento">
+<details>
+<summary>⚔️ Combattimento & economia delle azioni <span class="badge core">core</span></summary>
+<div class="body">
+  <p>Round = 6 secondi. Iniziativa: <code>d20 + mod DES</code>, ordine fisso per tutto lo scontro.</p>
+  <h3>Nel tuo turno</h3>
+  <table>
+    <tr><th>Risorsa</th><th>Cosa ci fai</th></tr>
+    <tr><td><b>1 Azione</b></td><td>Attacco, lancio incantesimo, Scatto, Disimpegno, Schivata, Aiuto, Nascondersi...</td></tr>
+    <tr><td><b>1 Azione bonus</b></td><td>Solo se qualcosa la concede (es. <i>parola guaritrice</i>, <i>arma spirituale</i>)</td></tr>
+    <tr><td><b>Movimento</b></td><td>La tua velocità (tipico 9 m), spezzabile prima/dopo l'azione</td></tr>
+    <tr><td><b>1 Reazione</b></td><td>Anche fuori turno, 1 per round. Classico: attacco di opportunità quando un nemico esce dalla tua portata</td></tr>
+    <tr><td><b>Interazione gratuita</b></td><td>Sfoderare arma, aprire porta (1 per turno)</td></tr>
+  </table>
+  <div class="callout bad">
+    <b>Regola d'oro incantesimi:</b> se lanci un incantesimo con <b>azione bonus</b> (es. <i>parola guaritrice</i>), con l'azione puoi lanciare solo un <b>trucchetto</b> — non un altro incantesimo con slot.
+  </div>
+  <h3>Copertura</h3>
+  <table>
+    <tr><th>Copertura</th><th>Effetto</th></tr>
+    <tr><td>Metà</td><td>+2 CA e TS DES</td></tr>
+    <tr><td>Tre quarti</td><td>+5 CA e TS DES</td></tr>
+    <tr><td>Totale</td><td>Non bersagliabile direttamente</td></tr>
+  </table>
+</div>
+</details>
+</section>
+
+<section id="pf">
+<details>
+<summary>❤️ Punti ferita & Morte <span class="badge core">core</span></summary>
+<div class="body">
+  <ul>
+    <li>PF 0 → <b>privo di sensi</b>, non morto.</li>
+    <li>Inizi i <b>tiri salvezza contro morte</b>: d20 secco a ogni tuo turno. 10+ = successo, sotto = fallimento.</li>
+    <li><b>3 successi</b> = stabile (ma resti a 0). <b>3 fallimenti</b> = morto.</li>
+    <li>20 naturale = riprendi 1 PF e ti rialzi. 1 naturale = 2 fallimenti.</li>
+    <li>Subire danno mentre sei a 0 = 1 fallimento automatico (critico = 2).</li>
+    <li>Qualsiasi cura, anche 1 PF, ti rialza subito.</li>
+  </ul>
+  <div class="callout good">
+    <b>Per questo</b> <i>parola guaritrice</i> (cura a distanza, azione bonus) è lo strumento principe del chierico: rialzi un alleato caduto e ti resta l'azione per un trucchetto.
+  </div>
+</div>
+</details>
+</section>
+
+<section id="riposi">
+<details>
+<summary>🏕️ Riposi <span class="badge core">core</span></summary>
+<div class="body">
+  <div class="grid2">
+    <div class="mini">
+      <h4>Riposo breve (1 ora)</h4>
+      <ul>
+        <li>Spendi Dadi Vita per curarti (d8 + COS per chierico)</li>
+        <li>Ricarica <b>Incanalare Divinità</b></li>
+      </ul>
+    </div>
+    <div class="mini">
+      <h4>Riposo lungo (8 ore)</h4>
+      <ul>
+        <li>PF pieni</li>
+        <li>Tutti gli slot incantesimo</li>
+        <li>Recuperi metà dei Dadi Vita totali</li>
+        <li>Qui cambi gli <b>incantesimi preparati</b></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</details>
+</section>
+
+<section id="magia">
+<details>
+<summary>✨ Magia — il sistema chiave per te <span class="badge cleric">chierico</span></summary>
+<div class="body">
+  <h3>Trucchetti (cantrip)</h3>
+  <p>Illimitati, scalano col livello del personaggio. Classici da chierico: <i>fiamma sacra</i>, <i>guida</i>, <i>taumaturgia</i>.</p>
+  <h3>Slot incantesimo</h3>
+  <p>Il carburante. Chierico liv. 3: <b>4 slot di 1°, 2 slot di 2°</b>. Uno slot superiore può potenziare un incantesimo inferiore (upcast: <i>cura ferite</i> con slot di 2° = 2d8).</p>
+  <h3>Chierico = incantatore "preparato"</h3>
+  <p>Conosci <b>tutta</b> la lista del chierico; ogni mattina prepari <code>mod SAG + livello</code> incantesimi (es. SAG 16, liv. 3 → 6 preparati). Flessibilità enorme: cambi ogni giorno al riposo lungo.</p>
+  <h3>Concentrazione</h3>
+  <ul>
+    <li>Molti incantesimi la richiedono (es. <i>benedizione</i> sì, <i>arma spirituale</i> <b>no</b>).</li>
+    <li><b>Max 1 alla volta</b>. Lanci un secondo incantesimo a concentrazione → il primo cade.</li>
+    <li>Subisci danno → TS COS con CD = max(10, metà danno) o perdi l'incantesimo.</li>
+  </ul>
+  <h3>Rituali</h3>
+  <p>Incantesimi col tag "rituale" lanciabili in 10 min extra <b>senza consumare slot</b> (il chierico può, se preparati). Es: <i>individuazione del magico</i>.</p>
+  <h3>Componenti V / S / M</h3>
+  <p>Il <b>focus sacro</b> (simbolo sacro) sostituisce i componenti materiali senza costo indicato.</p>
+</div>
+</details>
+</section>
+
+<section id="chierico">
+<details>
+<summary>🛡️ Chierico — cosa ti definisce <span class="badge cleric">chierico</span></summary>
+<div class="body">
+  <ul>
+    <li><b>Dado vita d8</b>, armature medie + scudi (alcuni domini: pesanti), armi semplici.</li>
+    <li>TS di classe: <b>SAG e CAR</b>.</li>
+  </ul>
+  <h3>Dominio divino (scelto a liv. 1)</h3>
+  <p>Definisce lo stile. Dà incantesimi di dominio <b>sempre preparati gratis</b> + privilegi.</p>
+  <table>
+    <tr><th>Dominio</th><th>Stile</th></tr>
+    <tr><td><b>Vita</b></td><td>Super guaritore, armature pesanti</td></tr>
+    <tr><td><b>Guerra</b></td><td>Picchiatore in prima linea</td></tr>
+    <tr><td><b>Luce</b></td><td>Blaster (danni ad area)</td></tr>
+    <tr><td><b>Inganno</b></td><td>Furtivo/supporto</td></tr>
+    <tr><td><b>Tempesta</b></td><td>Danni reattivi, controllo</td></tr>
+  </table>
+  <h3>Incanalare Divinità (liv. 2)</h3>
+  <p>1 uso, ricarica a riposo breve o lungo. Tutti hanno <b>Scacciare Non Morti</b>; il dominio aggiunge un'opzione propria (es. Vita: <i>Preservare Vita</i> — cura 15 PF distribuiti).</p>
+  <h3>Livello 3 = incantesimi di 2° livello</h3>
+  <ul>
+    <li><b><i>Arma spirituale</i></b> — azione bonus, danno ogni turno, <b>niente concentrazione</b>. Pilastro.</li>
+    <li><i>Aiuto</i> — +5 PF max a 3 creature, 8 ore, no concentrazione.</li>
+    <li><i>Ristorare inferiore</i> — rimuove malattia/condizione.</li>
+    <li><i>Silenzio</i> — zona anti-incantatori (rituale).</li>
+  </ul>
+</div>
+</details>
+</section>
+
+<section id="condizioni">
+<details>
+<summary>🩸 Condizioni da sapere <span class="badge core">core</span></summary>
+<div class="body">
+  <p>Ogni condizione = pacchetto fisso di effetti. Tabella completa: 5e.tools → Quick Reference.</p>
+  <table>
+    <tr><th>Condizione</th><th>Effetto in breve</th></tr>
+    <tr><td><b>Prono</b></td><td>Attacchi in mischia contro di te con vantaggio, a distanza con svantaggio; i tuoi attacchi con svantaggio; rialzarsi costa metà movimento</td></tr>
+    <tr><td><b>Afferrato</b></td><td>Velocità 0</td></tr>
+    <tr><td><b>Trattenuto</b></td><td>Velocità 0, attacchi contro di te con vantaggio, i tuoi con svantaggio, svantaggio TS DES</td></tr>
+    <tr><td><b>Accecato</b></td><td>Fallisci prove basate sulla vista; attacchi contro di te con vantaggio, i tuoi con svantaggio</td></tr>
+    <tr><td><b>Spaventato</b></td><td>Svantaggio a prove e attacchi finché vedi la fonte; non puoi avvicinarti ad essa</td></tr>
+    <tr><td><b>Avvelenato</b></td><td>Svantaggio ad attacchi e prove</td></tr>
+    <tr><td><b>Stordito</b></td><td>Incapacitato, fallisci TS FOR/DES, attacchi contro di te con vantaggio</td></tr>
+    <tr><td><b>Incapacitato</b></td><td>Niente azioni né reazioni</td></tr>
+    <tr><td><b>Invisibile</b></td><td>Attacchi contro di te con svantaggio, i tuoi con vantaggio</td></tr>
+  </table>
+</div>
+</details>
+</section>
+
+<section id="studio">
+<details open>
+<summary>📚 Piano di studio su 5e.tools</summary>
+<div class="body">
+  <ol>
+    <li><b>Rules → Quick Reference</b> — azioni in combattimento, condizioni</li>
+    <li><b>Classes → Cleric</b> — livelli 1–3 + il tuo dominio</li>
+    <li><b>Spells</b> — filtro: Cleric, liv. 0–2 → impara ~15 incantesimi chiave</li>
+    <li><b>Rules → Combat</b> — capitolo combattimento del PHB</li>
+  </ol>
+  <div class="callout">
+    <b>Prossimi argomenti da coprire:</b> lista incantesimi essenziali con quando/perché usarli · scelta del dominio · tattica di ruolo in combattimento (posizionamento, priorità).
+  </div>
+</div>
+</details>
+</section>
+
+</main>
+
+<footer>
+  Guida generata con Claude Code · si aggiorna man mano che copriamo argomenti nuovi
+</footer>
+
+</div><!-- /.layout -->
+
+<script>
+  const links = [...document.querySelectorAll('nav a')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        map.get(e.target.id)?.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
+</script>
+
+</body>
+</html>
